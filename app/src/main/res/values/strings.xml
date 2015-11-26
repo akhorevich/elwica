@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Elwica</string>
+    <string name="listHead">Калькуляторы</string>
+    <string-array name="mainArray">
+        <item>Расчет сечения кабеля</item>
+        <item>Расчет сопротивления кабеля</item>
+    </string-array>
 </resources>
