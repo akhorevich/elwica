@@ -8,11 +8,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener{
+public class MainActivity extends AppCompatActivity{
     ListView listMain;
     String[] mainArray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,19 +25,27 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         listMain = (ListView) findViewById(R.id.listMain);
 
         listMain.addHeaderView(head);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_selectable_list_item, mainArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mainArray);
         listMain.setAdapter(adapter);
-        listMain.setOnItemClickListener(this);
+
+        listMain.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
+                                    long id) {
+
+                switch (position){
+                    case 1:
+                        startActivity(new Intent(getApplication(),CurrentActivity.class));
+                        break;
+                    case 2:
+                        //startActivity(new Intent(getApplication(), Resistance.class));
+                        break;
+                }
+            }
+        });
 
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch(position){
-            case 0:
-                Intent i = new Intent(this, CurrentActivity.class);
-                startActivity(i);
-                break;
-        }
-    }
+
+
 }

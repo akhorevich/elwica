@@ -1,73 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
+        android:id="@+id/edLay"
+        android:gravity="center_horizontal">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/textView2" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etPow"
+            android:inputType="number"
+            android:hint="@string/power"
+            android:background="@drawable/back"
+            android:padding="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/Voltage"
+            android:layout_alignEnd="@+id/Voltage"
+            android:layout_weight="1"
+             />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView3"
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etVol"
+            android:inputType="number"
+            android:padding="10dp"
+            android:background="@drawable/back"
+            android:hint="@string/voltage"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/Voltage"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0px"
+        android:layout_height="0px"
         android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/textView2" />
+        android:id="@+id/space" />
 
-    <EditText
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_toEndOf="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:layout_below="@+id/textView3" />
+        android:layout_below="@+id/edLay"
+        android:id="@+id/Phase"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="false">
 
-    <RadioButton
+        <TextView
+            android:text="@string/phase"
+            android:id="@+id/textView2"
+            style="@style/title"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginTop="5dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/one_phase"
+                android:id="@+id/rbOnePhase"
+
+                android:layout_alignParentLeft="true"
+                android:checked="true"
+              />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/three_phase"
+                android:id="@+id/rbThreePhase"
+                android:layout_alignParentRight="false"
+                android:layout_toRightOf="@+id/rbOnePhase"
+                android:layout_alignBaseline="@+id/rbOnePhase" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton"
-        android:layout_below="@+id/editText" />
+        android:id="@+id/Voltage"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/Phase"
+        android:layout_toRightOf="@+id/space">
 
-    <RadioButton
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voltage"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            style="@style/title" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/line_volt"
+                android:id="@+id/rbLineVolt"
+                android:layout_below="@+id/textView3"
+                android:layout_alignParentLeft="true"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phase_volt"
+                android:id="@+id/rbPhaseVolt"
+                android:layout_toRightOf="@+id/rbLineVolt"
+                android:layout_alignBaseline="@+id/rbLineVolt" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton2"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignParentStart="true" />
+        android:layoutMode="clipBounds"
+        android:layout_marginTop="10dp"
+        android:id="@+id/wire"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/Phase">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wire"
+            android:id="@+id/textView4"
+            android:textStyle="bold"
+            style="@style/title" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copper"
+            android:id="@+id/radioButton"
+            android:layout_below="@+id/etPow"
+            android:checked="true"
+            android:layout_marginTop="5dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alum"
+            android:id="@+id/radioButton2"
+            android:layout_below="@+id/radioButton"
+            android:layout_alignParentStart="true" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/types"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/wire"
+        style="@style/title"
+        android:layout_alignLeft="@+id/space" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:layout_below="@+id/editText2"
-        android:layout_toRightOf="@+id/radioButton"
-        android:layout_alignBottom="@+id/radioButton2" />
+        android:id="@+id/spin"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/textView5"
+        android:layout_alignLeft="@+id/textView5" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result"
+        android:layout_below="@+id/spin"
+        android:layout_above="@+id/butCount"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="@string/count"
+        android:id="@+id/butCount"
         android:layout_alignParentStart="false"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/space"
+        android:layout_marginRight="5dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear"
+        android:id="@+id/butClear"
+        android:layout_toRightOf="@+id/space"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp" />
 
 </RelativeLayout>

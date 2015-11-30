@@ -5,4 +5,27 @@
         <item>Расчет сечения кабеля</item>
         <item>Расчет сопротивления кабеля</item>
     </string-array>
+    <string name="power">Мощность, Вт</string>
+    <string name="voltage">Напряжение, В</string>
+    <string name="wire">Тип провода:</string>
+    <string name="copper">Медь</string>
+    <string name="alum">Алюминий</string>
+    <string name="phase">Фаза</string>
+    <string name="one_phase">Однофазная</string>
+    <string name="three_phase">Трехфазная</string>
+    <string name="phase_volt">Фазное</string>
+    <string name="line_volt">Линейное</string>
+
+    <string-array name="phase">
+        <item>Открытая проводка</item>
+        <item>2 одножильных</item>
+        <item>3 одножильных</item>
+        <item>4 одножильных</item>
+        <item>1 двухжильный</item>
+        <item>1 трехжильный</item>
+    </string-array>
+    <string name="types">Способ прокладки кабеля</string>
+    <string name="count">Считать</string>
+    <string name="clear">Очистить</string>
+    <string name="coef">Коэф. мощности,  cos&#981; </string>
 </resources>
